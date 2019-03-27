@@ -10,20 +10,33 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { createStore } from 'redux';
 
 const initalState = {
-    result: 1,
-    lastValues: []
+  result: 1,
+  lastValues: [],
+  name: "Rius"
 };
 
 const reducer = (state = initalState, action)  => {
   switch (action.type) {
     case "ADD":
-      state.result += action.payload;
+      state = {
+        ...state,
+        result: state.result +  action.payload,
+        lastValues: [...state.lastValues, action.payload]
+      };
       break;
     case "MULTIPLY":
-      state.result *= action.payload;
+      state = {
+        ...state,
+        result: state.result * action.payload,
+        lastValues: [...state.lastValues, action.payload]
+      };
       break;
     case "SUBTRACT":
-      state.result -= action.payload;
+      state = {
+        ...state,
+        result: state.result - action.payload,
+        lastValues: [...state.lastValues, action.payload]
+      };
       break;
   }
   return state;
@@ -46,9 +59,15 @@ store.dispatch({
 });
 
 store.dispatch({
-    type: "SUBTRACT",
-    payload: 1
-})
+  type: "SUBTRACT",
+  payload: 1
+});
+
+store.dispatch({
+  type: "ADD",
+  payload: 10
+});
+
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 
