@@ -1,18 +1,40 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Provider } from 'react-redux';
-import store from './store';
 
 import Home from './components/home/Home';
+import { connect } from 'react-redux';
 
 class App extends Component {
+
   render() {
     return (
-      <Provider store={store}>
-        <Home />
-      </Provider>
+      <div>
+        <h3>My name is: {this.props.user.name}</h3>
+        <h3>My age is: {this.props.user.age}</h3>
+        <button onClick={() => this.props.setName('Luis')}>change name</button>
+      </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer,
+    math: state.mathReducer
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setName: (name) => {
+      dispatch({
+        type: "SET_NAME",
+        payload: name
+      });
+    }
+  };
+};
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 
-
+import { Provider } from 'react-redux';
 
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
@@ -14,7 +14,7 @@ import { createLogger } from 'redux-logger';
 const mathReducer = (state = {
   result: 1,
   lastValues: [],
-  name: "Rius"
+  name: "Joel"
 }, action) => {
   switch (action.type) {
     case "ADD":
@@ -77,33 +77,43 @@ const store = createStore(
 //   console.log("Store updated", store.getState());
 // });
 
-store.dispatch({
-  type: "ADD",
-  payload: 1
-});
+// DISPATCHERS
+// store.dispatch({
+//   type: "ADD",
+//   payload: 1
+// });
 
-store.dispatch({
-  type: "MULTIPLY",
-  payload: 3
-});
+// store.dispatch({
+//   type: "MULTIPLY",
+//   payload: 3
+// });
 
-store.dispatch({
-  type: "SUBTRACT",
-  payload: 1
-});
+// store.dispatch({
+//   type: "SUBTRACT",
+//   payload: 1
+// });
 
-store.dispatch({
-  type: "ADD",
-  payload: 10
-});
+// store.dispatch({
+//   type: "ADD",
+//   payload: 10
+// });
 
-store.dispatch({
-  type: "SET_NAME",
-  payload: 'Luis'
-});
+// store.dispatch({
+//   type: "SET_NAME",
+//   payload: 'Luis'
+// });
+
+// store.dispatch({
+//   type: "SET_AGE",
+//   payload: 12
+// });
 
 
-// ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'));
 
 // // If you want your app to work offline and load faster, you can change
 // // unregister() to register() below. Note this comes with some pitfalls.
