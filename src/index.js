@@ -7,7 +7,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 
 
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createLogger } from 'redux-logger';
 
 // REDUCERS
 const mathReducer = (state = {
@@ -63,14 +64,18 @@ const userReducer = (state = {
 }
 
 // CREATE STORE
-const store = createStore(combineReducers({
-  mathReducer,
-  userReducer
-}));
+const store = createStore(
+  combineReducers({
+    mathReducer,
+    userReducer
+  }),
+  {},
+  applyMiddleware(createLogger())
+);
 
-store.subscribe(() => {
-  console.log("Store updated", store.getState());
-});
+// store.subscribe(() => {
+//   console.log("Store updated", store.getState());
+// });
 
 store.dispatch({
   type: "ADD",
@@ -95,7 +100,7 @@ store.dispatch({
 store.dispatch({
   type: "SET_NAME",
   payload: 'Luis'
-})
+});
 
 
 // ReactDOM.render(<App />, document.getElementById('root'));
