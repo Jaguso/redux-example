@@ -1,21 +1,33 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { setName } from '../../actions/userActions';
 
 class Home extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row">
-          <div className="col">
-            row1 col1
-          </div>
-          <div className="col">
-            row1 col2
-          </div>
-        </div>
-        <h3>woiefj</h3>
+        This is your name: {this.props.user.name}
+        <button onClick={() => this.props.setName("Luis")}></button>
       </div>
     );
   }
 }
 
-export default Home;
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setName: (name) => {
+      dispatch(setName(name));
+    }
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
