@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Home from './components/home/Home';
 import Calculator from './components/calculator/Calculator';
 import CalculatorRedux from './components/calculatorRedux/CalculatorRedux';
+import Colors from './components/colors/Colors';
 
 class App extends Component {
 
@@ -17,6 +18,7 @@ class App extends Component {
         <button onClick={()=>this.props.setAge('12')}>change age</button>
         <Calculator/>
         <CalculatorRedux />
+        <Colors/>
       </div>
     );
   }
