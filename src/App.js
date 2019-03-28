@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import Home from './components/home/Home';
 import Calculator from './components/calculator/Calculator';
+import CalculatorRedux from './components/calculatorRedux/CalculatorRedux';
 
 class App extends Component {
 
@@ -15,6 +16,7 @@ class App extends Component {
         <button onClick={() => this.props.setName('Luis')}>change name</button>
         <button onClick={()=>this.props.setAge('12')}>change age</button>
         <Calculator/>
+        <CalculatorRedux />
       </div>
     );
   }
