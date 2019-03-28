@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import { connect } from 'react-redux';
 
 import Home from './components/home/Home';
-import { connect } from 'react-redux';
+import Calculator from './components/calculator/Calculator';
 
 class App extends Component {
 
@@ -13,6 +14,7 @@ class App extends Component {
         <h3>My age is: {this.props.user.age}</h3>
         <button onClick={() => this.props.setName('Luis')}>change name</button>
         <button onClick={()=>this.props.setAge('12')}>change age</button>
+        <Calculator/>
       </div>
     );
   }
