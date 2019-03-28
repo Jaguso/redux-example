@@ -18,7 +18,7 @@ class Calculator extends Component {
   }
 
   calculatePrice = (price, discount) => {
-    return parseInt(price) * (parseInt(discount)/100);
+    return parseInt(price) - (parseInt(price) * (parseInt(discount)/100));
   }
 
   render() {
