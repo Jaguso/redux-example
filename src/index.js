@@ -6,72 +6,73 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import { Provider } from 'react-redux';
+import store from './store';
 
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { createLogger } from 'redux-logger';
+// import { createStore, combineReducers, applyMiddleware } from 'redux';
+// import { createLogger } from 'redux-logger';
 
-// REDUCERS
-const mathReducer = (state = {
-  result: 1,
-  lastValues: [],
-  name: "Joel"
-}, action) => {
-  switch (action.type) {
-    case "ADD":
-      state = {
-        ...state,
-        result: state.result +  action.payload,
-        lastValues: [...state.lastValues, action.payload]
-      };
-      break;
-    case "MULTIPLY":
-      state = {
-        ...state,
-        result: state.result * action.payload,
-        lastValues: [...state.lastValues, action.payload]
-      };
-      break;
-    case "SUBTRACT":
-      state = {
-        ...state,
-        result: state.result - action.payload,
-        lastValues: [...state.lastValues, action.payload]
-      };
-      break;
-  }
-  return state;
-};
+// // REDUCERS
+// const mathReducer = (state = {
+//   result: 1,
+//   lastValues: [],
+//   name: "Joel"
+// }, action) => {
+//   switch (action.type) {
+//     case "ADD":
+//       state = {
+//         ...state,
+//         result: state.result +  action.payload,
+//         lastValues: [...state.lastValues, action.payload]
+//       };
+//       break;
+//     case "MULTIPLY":
+//       state = {
+//         ...state,
+//         result: state.result * action.payload,
+//         lastValues: [...state.lastValues, action.payload]
+//       };
+//       break;
+//     case "SUBTRACT":
+//       state = {
+//         ...state,
+//         result: state.result - action.payload,
+//         lastValues: [...state.lastValues, action.payload]
+//       };
+//       break;
+//   }
+//   return state;
+// };
 
-const userReducer = (state = {
-  name: "Rius",
-  age: 57
-}, action) => {
-  switch (action.type) {
-    case "SET_NAME":
-      state = {
-        ...state,
-        name: action.payload
-      };
-      break;
-    case "SET_AGE":
-      state = {
-        ...state,
-        age: action.payload
-      };
-      break;
-  }
-  return state;
-}
+// const userReducer = (state = {
+//   name: "Rius",
+//   age: 57
+// }, action) => {
+//   switch (action.type) {
+//     case "SET_NAME":
+//       state = {
+//         ...state,
+//         name: action.payload
+//       };
+//       break;
+//     case "SET_AGE":
+//       state = {
+//         ...state,
+//         age: action.payload
+//       };
+//       break;
+//   }
+//   return state;
+// }
 
-// CREATE STORE
-const store = createStore(
-  combineReducers({
-    mathReducer,
-    userReducer
-  }),
-  {},
-  applyMiddleware(createLogger())
-);
+// // CREATE STORE
+// const store = createStore(
+//   combineReducers({
+//     mathReducer,
+//     userReducer
+//   }),
+//   {},
+//   applyMiddleware(createLogger())
+// );
 
 // store.subscribe(() => {
 //   console.log("Store updated", store.getState());

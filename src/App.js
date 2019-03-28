@@ -12,6 +12,7 @@ class App extends Component {
         <h3>My name is: {this.props.user.name}</h3>
         <h3>My age is: {this.props.user.age}</h3>
         <button onClick={() => this.props.setName('Luis')}>change name</button>
+        <button onClick={()=>this.props.setAge('12')}>change age</button>
       </div>
     );
   }
@@ -19,8 +20,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.userReducer,
-    math: state.mathReducer
+    user: state.user,
+    math: state.math
   };
 };
 
@@ -31,10 +32,15 @@ const mapDispatchToProps = (dispatch) => {
         type: "SET_NAME",
         payload: name
       });
+    },
+    setAge: (age) => {
+      dispatch({
+        type: "SET_AGE",
+        payload: age
+      });
     }
   };
 };
-
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
