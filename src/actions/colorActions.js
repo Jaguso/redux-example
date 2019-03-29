@@ -4,3 +4,9 @@ export function setText(text) {
         payload: text
     };
 }
+
+export function changeBoolean() {
+    return {
+        type: "CHANGE_BOOLEAN",
+    };
+}
