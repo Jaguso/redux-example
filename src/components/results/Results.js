@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Results extends Component {
+
   render() {
     return (
       <div style={{margin: '20px'}}>
@@ -14,6 +15,7 @@ class Results extends Component {
           className="btn btn-warning" 
           style={{margin: '8px'}} 
           onClick={() => this.props.minusOne()} >-1</button>
+        <h4 style={{margi: '10px'}}>Total number is: {this.props.result.isEven ? 'even' : 'odd'}</h4>
       </div>
     );
   }
