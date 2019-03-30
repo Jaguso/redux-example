@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Results from '../results/Results';
 
 class Colors extends Component {
   
@@ -18,8 +19,8 @@ class Colors extends Component {
           </h3>
           <button className="btn btn-primary" onClick={() => this.props.changeBoolean()}>Change</button>
         </div>
-
-      </div>
+        <Results/>
+      </div>  
     );
   }
 }
