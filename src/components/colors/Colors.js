@@ -6,14 +6,14 @@ class Colors extends Component {
   
   render() {
     return (
-      <div>
-        <div style={{margin: '20px', textAlign: 'center'}}>
+      <div style={{margin: '20px', textAlign: 'center'}}>
+        <div>
           <h3>Click button to change text: {this.props.color.text}</h3>
           <button className="btn btn-primary" onClick={() => this.props.setText('Python')}>
             Change name
           </button>
         </div>
-        <div style={{margin: '20px', textAlign: 'center'}}>
+        <div>
           <h3>
             Click button to change this: {this.props.color.isTrue ? 'red' : 'blue'} 
           </h3>
